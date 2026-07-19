@@ -13,7 +13,13 @@ app.use(express.json());
 app.use(helmet());
 app.use(compression());
 app.use(morgan("dev"));
+const cookieParser = require("cookie-parser");
 
+app.use(cookieParser());
+
+const authRoutes = require("./routes/auth.routes");
+
+app.use("/api/auth", authRoutes);
 app.get("/", (req, res) => {
     res.status(200).json({
         success: true,
