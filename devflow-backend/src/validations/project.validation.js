@@ -1,7 +1,7 @@
 const { body, validationResult } = require("express-validator");
 
 exports.projectValidation = [
-    body("name")
+    body("title")
         .notEmpty()
         .withMessage("Project name is required"),
 
