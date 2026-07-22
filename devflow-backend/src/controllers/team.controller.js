@@ -298,7 +298,7 @@ exports.getMembers = (req, res) => {
 
     const sql = `
         SELECT
-            tm.joined_at,
+            
             u.id,
             u.full_name,
             u.email
