@@ -4,7 +4,7 @@ import Login from "../pages/auth/Login";
 import Register from "../pages/auth/Register";
 
 import Dashboard from "../pages/dashboard/Dashboard";
-
+import ProjectDetails from "../pages/projects/ProjectDetails";
 import DashboardLayout from "../layouts/DashboardLayout";
 import ProtectedRoute from "./ProtectedRoute";
 import Projects from "../pages/projects/Projects";
@@ -24,7 +24,16 @@ const AppRoutes = () => {
         }
       >
         <Route path="/dashboard" element={<Dashboard />} />
+
+
 <Route path="/projects" element={<Projects />} />
+
+
+
+<Route
+  path="/projects/:id"
+  element={<ProjectDetails />}
+/>
         {/* Future Pages */}
         
         <Route path="/tasks" element={<h1>Tasks</h1>} />

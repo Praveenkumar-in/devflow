@@ -78,35 +78,40 @@ exports.getProjects = (req, res) => {
 
 };
 exports.getProjectById = (req, res) => {
-
     const { id } = req.params;
 
-    db.query(
-        "SELECT * FROM projects WHERE id=?",
-        [id],
-        (err, result) => {
+    const sql = `
+        SELECT
+            p.*,
+            u.full_name AS created_by_name,
+            u.email AS created_by_email
+        FROM projects p
+        JOIN users u
+            ON p.created_by = u.id
+        WHERE p.id = ?
+    `;
 
-            if (err)
-                return res.status(500).json({
-                    success: false,
-                    message: err.message
-                });
+    db.query(sql, [id], (err, result) => {
 
-            if (result.length === 0) {
-                return res.status(404).json({
-                    success: false,
-                    message: "Project not found"
-                });
-            }
-
-            res.json({
-                success: true,
-                project: result[0]
+        if (err) {
+            return res.status(500).json({
+                success: false,
+                message: err.message
             });
-
         }
-    );
 
+        if (result.length === 0) {
+            return res.status(404).json({
+                success: false,
+                message: "Project not found"
+            });
+        }
+
+        res.json({
+            success: true,
+            project: result[0]
+        });
+    });
 };
 exports.updateProject = (req, res) => {
 
