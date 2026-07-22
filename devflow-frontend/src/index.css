@@ -1154,3 +1154,223 @@ textarea.teams-input{
 .team-member-card .btn i{
     font-size:1rem;
 }
+/* ===========================
+   BUGS MODULE
+=========================== */
+
+.bug-card{
+  background:rgba(255,255,255,.06);
+  backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;
+  padding:20px;
+  transition:.3s;
+  height:100%;
+}
+
+.bug-card:hover{
+  transform:translateY(-6px);
+  border-color:#ef4444;
+  box-shadow:0 18px 40px rgba(239,68,68,.18);
+}
+
+.bug-card-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:12px;
+  margin-bottom:15px;
+}
+
+.bug-title{
+  color:#fff;
+  font-size:1.1rem;
+  font-weight:700;
+  margin-bottom:4px;
+}
+
+.bug-description{
+  color:#94a3b8;
+  margin:15px 0;
+  min-height:70px;
+}
+
+.bug-image-wrapper{
+  overflow:hidden;
+  border-radius:14px;
+  margin-bottom:18px;
+}
+
+.bug-image{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  transition:.35s;
+}
+
+.bug-card:hover .bug-image{
+  transform:scale(1.05);
+}
+
+.bug-info{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:18px;
+  color:#cbd5e1;
+  font-size:.92rem;
+}
+
+.bug-actions{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.bug-actions .btn{
+  flex:1;
+  border-radius:10px;
+}
+
+/* ===========================
+   BUG DETAILS
+=========================== */
+
+.bug-details-card{
+  background:rgba(255,255,255,.06);
+  backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;
+  padding:24px;
+}
+
+.bug-details-card h5{
+  color:#fff;
+  font-weight:700;
+}
+
+.bug-details-card p{
+  color:#cbd5e1;
+}
+
+.bug-details-card strong{
+  color:#fff;
+}
+
+.bug-details-card img{
+  width:100%;
+  border-radius:16px;
+  object-fit:cover;
+  transition:.3s;
+}
+
+.bug-details-card img:hover{
+  transform:scale(1.02);
+}
+
+/* ===========================
+   BUG MODAL
+=========================== */
+
+.bug-modal .modal-content{
+  background:rgba(17,24,39,.95);
+  backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;
+  color:#fff;
+}
+
+.bug-modal .modal-header{
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.bug-modal .modal-footer{
+  border-top:1px solid rgba(255,255,255,.08);
+}
+
+.bug-modal .modal-title{
+  color:#fff;
+  font-weight:700;
+}
+
+.bug-modal .form-label{
+  color:#e2e8f0;
+  font-weight:600;
+}
+
+.bug-modal .form-control,
+.bug-modal .form-select{
+  background:rgba(255,255,255,.05);
+  color:#fff;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:12px;
+}
+
+.bug-modal .form-control:focus,
+.bug-modal .form-select:focus{
+  background:rgba(255,255,255,.08);
+  color:#fff;
+  border-color:#3b82f6;
+  box-shadow:none;
+}
+
+.bug-modal .form-control::placeholder{
+  color:#94a3b8;
+}
+
+.bug-modal option{
+  color:#000;
+}
+
+/* ===========================
+   DELETE MODAL
+=========================== */
+
+.bug-delete-modal .modal-content{
+  background:rgba(17,24,39,.95);
+  backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;
+  color:#fff;
+}
+
+.bug-delete-modal .modal-header,
+.bug-delete-modal .modal-footer{
+  border-color:rgba(255,255,255,.08);
+}
+
+/* ===========================
+   BADGES
+=========================== */
+
+.badge{
+  font-weight:600;
+  letter-spacing:.3px;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:768px){
+
+  .bug-actions{
+    flex-direction:column;
+  }
+
+  .bug-info{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
+  }
+
+  .bug-card-header{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .bug-image{
+    height:170px;
+  }
+
+}

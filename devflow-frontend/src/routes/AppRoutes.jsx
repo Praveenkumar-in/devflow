@@ -16,6 +16,10 @@ import ProtectedRoute from "./ProtectedRoute";
 
 import Teams from "../pages/teams/Teams";
 import TeamDetails from "../pages/teams/TeamDetails";
+
+import BugDetails from "../pages/bugs/BugDetails";
+import Bugs from "../pages/bugs/Bugs";
+
 const AppRoutes = () => {
   return (
     <Routes>
@@ -59,10 +63,28 @@ const AppRoutes = () => {
     </ProtectedRoute>
   }
 />
+<Route
+  path="/bugs"
+  element={
+    <ProtectedRoute>
+      <Bugs />
+    </ProtectedRoute>
+  }
+/>
+
+<Route
+  path="/bugs/:id"
+  element={
+    <ProtectedRoute>
+      <BugDetails />
+    </ProtectedRoute>
+  }
+/>
+
 
         {/* Future Pages */}
        
-        <Route path="/bugs" element={<h1>Bugs</h1>} />
+        
         <Route path="/ai" element={<h1>AI Assistant</h1>} />
         <Route path="/notifications" element={<h1>Notifications</h1>} />
         <Route path="/profile" element={<h1>Profile</h1>} />
