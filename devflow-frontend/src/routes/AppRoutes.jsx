@@ -4,10 +4,16 @@ import Login from "../pages/auth/Login";
 import Register from "../pages/auth/Register";
 
 import Dashboard from "../pages/dashboard/Dashboard";
+
+import Projects from "../pages/projects/Projects";
 import ProjectDetails from "../pages/projects/ProjectDetails";
+
+import Tasks from "../pages/tasks/Tasks";
+import TaskDetails from "../pages/tasks/TaskDetails";
+
 import DashboardLayout from "../layouts/DashboardLayout";
 import ProtectedRoute from "./ProtectedRoute";
-import Projects from "../pages/projects/Projects";
+
 const AppRoutes = () => {
   return (
     <Routes>
@@ -23,20 +29,18 @@ const AppRoutes = () => {
           </ProtectedRoute>
         }
       >
+        {/* Dashboard */}
         <Route path="/dashboard" element={<Dashboard />} />
 
+        {/* Projects */}
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/projects/:id" element={<ProjectDetails />} />
 
-<Route path="/projects" element={<Projects />} />
+        {/* Tasks */}
+        <Route path="/tasks" element={<Tasks />} />
+        <Route path="/tasks/:id" element={<TaskDetails />} />
 
-
-
-<Route
-  path="/projects/:id"
-  element={<ProjectDetails />}
-/>
         {/* Future Pages */}
-        
-        <Route path="/tasks" element={<h1>Tasks</h1>} />
         <Route path="/teams" element={<h1>Teams</h1>} />
         <Route path="/bugs" element={<h1>Bugs</h1>} />
         <Route path="/ai" element={<h1>AI Assistant</h1>} />

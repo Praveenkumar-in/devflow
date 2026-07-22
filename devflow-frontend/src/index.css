@@ -474,6 +474,273 @@ font-size:13px;
     font-weight:700;
 }
 
+
 .stat-box small{
     color:#94a3b8;
+}
+
+/* ===========================
+   Project Details Sidebar
+=========================== */
+
+.details-sidebar{
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+}
+
+.info-card,
+.stats-card{
+    width:100%;
+    min-height:260px;
+}
+
+.info-item{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    margin-bottom:22px;
+}
+
+.info-item:last-child{
+    margin-bottom:0;
+}
+
+.info-icon{
+    width:52px;
+    height:52px;
+    border-radius:14px;
+    background:rgba(255,255,255,.08);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-shrink:0;
+}
+
+.info-icon i{
+    color:#38bdf8;
+    font-size:20px;
+}
+
+.info-content{
+    flex:1;
+}
+
+.info-content small{
+    color:#94a3b8;
+    display:block;
+    margin-bottom:4px;
+}
+
+.info-content h6{
+    margin:0;
+    color:#fff;
+    font-size:16px;
+    font-weight:600;
+}
+
+.stat-box{
+    height:120px;
+    border-radius:16px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.08);
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    transition:.3s;
+}
+
+.stat-box:hover{
+    transform:translateY(-5px);
+    border-color:#3b82f6;
+}
+
+.stat-box i{
+    font-size:26px;
+    margin-bottom:10px;
+}
+
+.stat-box h3{
+    margin:0;
+    font-weight:700;
+}
+
+.stat-box small{
+    margin-top:4px;
+    color:#94a3b8;
+}
+
+@media(max-width:991px){
+
+.details-sidebar{
+    margin-top:24px;
+}
+
+.info-card,
+.stats-card{
+    min-height:auto;
+}
+
+}
+/* ==========================
+   Task Card
+========================== */
+
+.task-card{
+    background: rgba(255,255,255,.08);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 20px;
+    padding: 24px;
+    transition: .3s;
+    height: 100%;
+}
+
+.task-card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,.15);
+}
+
+/* ==========================
+   Task Icon
+========================== */
+
+.task-icon{
+    width:55px;
+    height:55px;
+    border-radius:15px;
+    background:linear-gradient(135deg,#4f8cff,#6f42c1);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.4rem;
+}
+
+/* ==========================
+   Typography
+========================== */
+
+.task-title{
+    font-size:1.2rem;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.task-description{
+    color:#bdbdbd;
+    min-height:70px;
+}
+
+/* ==========================
+   Task Info
+========================== */
+
+.task-info{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    font-size:.95rem;
+}
+
+.task-info div{
+    display:flex;
+    align-items:center;
+}
+
+/* ==========================
+   Glass Card
+========================== */
+
+.glass-card{
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:20px;
+}
+
+/* ==========================
+   Details Sidebar
+========================== */
+
+.info-card{
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:20px;
+    padding:25px;
+}
+
+/* ==========================
+   Info Item
+========================== */
+
+.info-item{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.info-icon{
+    width:45px;
+    height:45px;
+    border-radius:12px;
+    background:rgba(79,140,255,.15);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#4f8cff;
+    font-size:1.2rem;
+}
+
+.info-content{
+    display:flex;
+    flex-direction:column;
+}
+
+.info-content small{
+    color:#aaa;
+    margin-bottom:3px;
+}
+
+.info-content strong{
+    font-size:.95rem;
+}
+
+/* ==========================
+   Badges
+========================== */
+
+.badge{
+    padding:8px 12px;
+    font-size:.75rem;
+    border-radius:10px;
+}
+
+/* ==========================
+   Buttons
+========================== */
+
+.task-card .btn{
+    border-radius:10px;
+}
+
+/* ==========================
+   Responsive
+========================== */
+
+@media(max-width:768px){
+
+.task-card{
+    padding:18px;
+}
+
+.info-card{
+    margin-top:20px;
+}
+
 }
