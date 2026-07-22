@@ -13,7 +13,6 @@ import CreateTaskModal from "./CreateTaskModal";
 import EditTaskModal from "./EditTaskModal";
 import DeleteTaskModal from "./DeleteTaskModal";
 
-import "../../styles/Tasks.css";
 
 const Tasks = () => {
   const [tasks, setTasks] = useState([]);

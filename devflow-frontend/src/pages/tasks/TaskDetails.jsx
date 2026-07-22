@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 
 import { getTaskById } from "../../services/taskService";
 
-import "../../styles/Tasks.css";
+
 
 const TaskDetails = () => {
 
