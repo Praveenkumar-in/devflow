@@ -20,6 +20,7 @@ import TeamDetails from "../pages/teams/TeamDetails";
 import BugDetails from "../pages/bugs/BugDetails";
 import Bugs from "../pages/bugs/Bugs";
 
+import Notifications from "../pages/notifications/Notifications";
 const AppRoutes = () => {
   return (
     <Routes>
@@ -81,12 +82,20 @@ const AppRoutes = () => {
   }
 />
 
+<Route
+  path="/notifications"
+  element={
+    <ProtectedRoute>
+      <Notifications />
+    </ProtectedRoute>
+  }
+/>
 
         {/* Future Pages */}
        
         
         <Route path="/ai" element={<h1>AI Assistant</h1>} />
-        <Route path="/notifications" element={<h1>Notifications</h1>} />
+        
         <Route path="/profile" element={<h1>Profile</h1>} />
       </Route>
     </Routes>
