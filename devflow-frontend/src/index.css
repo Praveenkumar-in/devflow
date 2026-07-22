@@ -1110,3 +1110,47 @@ textarea.teams-input{
 .teams-modal .btn-close{
     filter:invert(1);
 }
+/* ==========================
+   Team Member Card
+========================== */
+
+.team-member-card{
+    background:rgba(255,255,255,.06);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:16px;
+    padding:18px;
+    height:100%;
+    transition:.3s;
+}
+
+.team-member-card:hover{
+    transform:translateY(-5px);
+    border-color:#3b82f6;
+    box-shadow:0 12px 30px rgba(59,130,246,.25);
+}
+
+.team-member-card h6{
+    color:#fff;
+    font-weight:700;
+    margin-bottom:6px;
+}
+
+.team-member-card p{
+    color:#94a3b8;
+    margin-bottom:0;
+    font-size:.95rem;
+}
+
+.team-member-card .btn{
+    width:40px;
+    height:40px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:10px;
+}
+
+.team-member-card .btn i{
+    font-size:1rem;
+}
