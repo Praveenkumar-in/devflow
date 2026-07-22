@@ -87,19 +87,7 @@ const Sidebar = () => {
 
       </div>
 
-      <div className="sidebar-footer">
-
-        <div className="footer-card">
-
-          <i className="bi bi-lightning-charge-fill"></i>
-
-          <h6>DevFlow Pro</h6>
-
-          <small>Premium Workspace</small>
-
-        </div>
-
-      </div>
+      
     </motion.aside>
   );
 };
