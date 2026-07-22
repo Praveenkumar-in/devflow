@@ -58,12 +58,21 @@ exports.createBug = (req, res) => {
 // Get All Bugs
 exports.getBugs = (req, res) => {
 
-    const sql = `
-        SELECT *
-        FROM bug_reports
-        ORDER BY created_at DESC
-    `;
-
+   const sql = `
+    SELECT
+        b.*,
+        p.title AS project_name,
+        reporter.full_name AS reported_by_name,
+        assignee.full_name AS assigned_to_name
+    FROM bug_reports b
+    JOIN projects p
+        ON b.project_id = p.id
+    JOIN users reporter
+        ON b.reported_by = reporter.id
+    LEFT JOIN users assignee
+        ON b.assigned_to = assignee.id
+    ORDER BY b.created_at DESC
+`;
     db.query(sql, (err, bugs) => {
 
         if (err) {
@@ -81,38 +90,49 @@ exports.getBugs = (req, res) => {
     });
 
 };
-
 // Get Bug By ID
 exports.getBugById = (req, res) => {
 
     const { id } = req.params;
 
-    db.query(
-        "SELECT * FROM bug_reports WHERE id=?",
-        [id],
-        (err, bug) => {
+    const sql = `
+        SELECT
+            b.*,
+            p.title AS project_name,
+            reporter.full_name AS reported_by_name,
+            assignee.full_name AS assigned_to_name
+        FROM bug_reports b
+        JOIN projects p
+            ON b.project_id = p.id
+        JOIN users reporter
+            ON b.reported_by = reporter.id
+        LEFT JOIN users assignee
+            ON b.assigned_to = assignee.id
+        WHERE b.id = ?
+    `;
 
-            if (err) {
-                return res.status(500).json({
-                    success: false,
-                    message: err.message
-                });
-            }
+    db.query(sql, [id], (err, bug) => {
 
-            if (bug.length === 0) {
-                return res.status(404).json({
-                    success: false,
-                    message: "Bug not found"
-                });
-            }
-
-            res.json({
-                success: true,
-                bug: bug[0]
+        if (err) {
+            return res.status(500).json({
+                success: false,
+                message: err.message
             });
-
         }
-    );
+
+        if (bug.length === 0) {
+            return res.status(404).json({
+                success: false,
+                message: "Bug not found"
+            });
+        }
+
+        res.json({
+            success: true,
+            bug: bug[0]
+        });
+
+    });
 
 };
 
