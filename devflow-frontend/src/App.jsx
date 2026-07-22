@@ -1,6 +1,6 @@
 import { Toaster } from "react-hot-toast";
 
-import AnimatedBackground from "./components/background";
+import AnimatedBackground from "./components/Background";
 
 import AppRoutes from "./routes/AppRoutes";
 
