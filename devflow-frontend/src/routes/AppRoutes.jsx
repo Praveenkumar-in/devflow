@@ -14,6 +14,8 @@ import TaskDetails from "../pages/tasks/TaskDetails";
 import DashboardLayout from "../layouts/DashboardLayout";
 import ProtectedRoute from "./ProtectedRoute";
 
+import Teams from "../pages/teams/Teams";
+import TeamDetails from "../pages/teams/TeamDetails";
 const AppRoutes = () => {
   return (
     <Routes>
@@ -40,8 +42,26 @@ const AppRoutes = () => {
         <Route path="/tasks" element={<Tasks />} />
         <Route path="/tasks/:id" element={<TaskDetails />} />
 
+        <Route
+  path="/teams"
+  element={
+    <ProtectedRoute>
+      <Teams />
+    </ProtectedRoute>
+  }
+/>
+
+<Route
+  path="/teams/:id"
+  element={
+    <ProtectedRoute>
+      <TeamDetails />
+    </ProtectedRoute>
+  }
+/>
+
         {/* Future Pages */}
-        <Route path="/teams" element={<h1>Teams</h1>} />
+       
         <Route path="/bugs" element={<h1>Bugs</h1>} />
         <Route path="/ai" element={<h1>AI Assistant</h1>} />
         <Route path="/notifications" element={<h1>Notifications</h1>} />

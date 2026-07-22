@@ -89,23 +89,86 @@ const TaskDetails = () => {
 
       <div className="row g-4">
 
-        {/* Left Side */}
+       {/* Left Side */}
 
-        <div className="col-lg-8">
+<div className="col-lg-8">
 
-          <div className="glass-card p-4">
+  {/* Description */}
 
-            <h5 className="mb-3">
-              Description
-            </h5>
+  <div className="glass-card p-4 mb-4">
 
-            <p className="text-muted mb-0">
-              {task.description}
-            </p>
+    <h5 className="mb-3">
+      <i className="bi bi-card-text me-2 text-primary"></i>
+      Description
+    </h5>
 
-          </div>
+    <p className="text-muted mb-0">
+      {task.description}
+    </p>
 
-        </div>
+  </div>
+
+  {/* Activity */}
+
+  <div className="glass-card p-4">
+
+    <h5 className="mb-4">
+      <i className="bi bi-activity me-2 text-success"></i>
+      Activity
+    </h5>
+
+    <div className="info-item">
+
+      <div className="info-icon">
+        <i className="bi bi-person-circle"></i>
+      </div>
+
+      <div className="info-content">
+        <small>Created By</small>
+        <strong>
+          {task.assigned_to_name || "N/A"}
+        </strong>
+      </div>
+
+    </div>
+
+    <div className="info-item">
+
+      <div className="info-icon">
+        <i className="bi bi-calendar-plus"></i>
+      </div>
+
+      <div className="info-content">
+        <small>Created On</small>
+        <strong>
+          {task.created_at
+            ? new Date(task.created_at).toLocaleDateString()
+            : "N/A"}
+        </strong>
+      </div>
+
+    </div>
+
+    <div className="info-item">
+
+      <div className="info-icon">
+        <i className="bi bi-clock-history"></i>
+      </div>
+
+      <div className="info-content">
+        <small>Updated On</small>
+        <strong>
+          {task.updated_at
+            ? new Date(task.updated_at).toLocaleDateString()
+            : "Not Updated"}
+        </strong>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
 
         {/* Right Side */}
 

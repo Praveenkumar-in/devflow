@@ -1,0 +1,172 @@
+/* =========================================
+   Teams Page
+========================================= */
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 45px rgba(108, 99, 255, 0.15);
+}
+
+/* =========================================
+   Page Header
+========================================= */
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #212529;
+}
+
+.page-subtitle {
+  color: #6c757d;
+  margin-bottom: 0;
+}
+
+/* =========================================
+   Team Cards
+========================================= */
+
+.team-card {
+  height: 100%;
+  cursor: pointer;
+}
+
+.team-card h5 {
+  font-weight: 700;
+}
+
+.team-card p {
+  margin-bottom: 0.5rem;
+}
+
+.team-card .badge {
+  font-size: 0.8rem;
+}
+
+/* =========================================
+   Member Cards
+========================================= */
+
+.member-card {
+  border-radius: 15px;
+  transition: all 0.25s ease;
+}
+
+.member-card:hover {
+  transform: translateY(-4px);
+}
+
+.member-card h6 {
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.member-card p {
+  margin-bottom: 0;
+  font-size: 0.92rem;
+}
+
+/* =========================================
+   Buttons
+========================================= */
+
+.btn-primary {
+  border-radius: 10px;
+}
+
+.btn-outline-primary,
+.btn-outline-danger,
+.btn-outline-secondary {
+  border-radius: 10px;
+}
+
+.btn-sm {
+  border-radius: 8px;
+}
+
+/* =========================================
+   Forms
+========================================= */
+
+.form-control,
+.form-select {
+  border-radius: 10px;
+  min-height: 46px;
+}
+
+textarea.form-control {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* =========================================
+   Empty State
+========================================= */
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.empty-state i {
+  font-size: 4rem;
+  color: #6c63ff;
+  margin-bottom: 20px;
+}
+
+.empty-state h4 {
+  font-weight: 700;
+}
+
+.empty-state p {
+  color: #6c757d;
+}
+
+/* =========================================
+   Badges
+========================================= */
+
+.badge {
+  border-radius: 999px;
+  padding: 0.55em 0.85em;
+}
+
+/* =========================================
+   Responsive
+========================================= */
+
+@media (max-width: 992px) {
+  .page-title {
+    font-size: 1.7rem;
+  }
+
+  .glass-card {
+    padding: 1.2rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 1.5rem;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .d-flex.justify-content-between {
+    flex-direction: column;
+    align-items: stretch !important;
+    gap: 1rem;
+  }
+}
