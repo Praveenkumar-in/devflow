@@ -99,35 +99,43 @@ exports.getTaskById = (req, res) => {
 
     const { id } = req.params;
 
-    db.query(
-        "SELECT * FROM tasks WHERE id=?",
-        [id],
-        (err, result) => {
+    const sql = `
+        SELECT
+            t.*,
+            p.title AS project_name,
+            u.full_name AS assigned_to_name
+        FROM tasks t
+        JOIN projects p
+            ON t.project_id = p.id
+        JOIN users u
+            ON t.assigned_to = u.id
+        WHERE t.id = ?
+    `;
 
-            if (err) {
-                return res.status(500).json({
-                    success: false,
-                    message: err.message
-                });
-            }
+    db.query(sql, [id], (err, result) => {
 
-            if (result.length === 0) {
-                return res.status(404).json({
-                    success: false,
-                    message: "Task not found"
-                });
-            }
-
-            res.json({
-                success: true,
-                task: result[0]
+        if (err) {
+            return res.status(500).json({
+                success: false,
+                message: err.message
             });
-
         }
-    );
+
+        if (result.length === 0) {
+            return res.status(404).json({
+                success: false,
+                message: "Task not found"
+            });
+        }
+
+        res.json({
+            success: true,
+            task: result[0]
+        });
+
+    });
 
 };
-
 // ==============================
 // Update Task
 // ==============================
