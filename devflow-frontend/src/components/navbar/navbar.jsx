@@ -1,35 +1,68 @@
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+
 const Navbar = () => {
   return (
-    <nav
-      className="navbar px-4"
-      style={{
-        background: "#1f2937",
-      }}
+    <motion.nav
+      className="navbar glass-navbar px-4 py-3"
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
     >
       <div className="container-fluid">
 
-        <h4 className="text-white mb-0">
+        {/* Left */}
+        <div>
+          <h4 className="text-white fw-bold mb-0">
+            Daashboard
+          </h4>
 
-          Dashboard
+          <small className="text-light opacity-75">
+            Welcome back 👋
+          </small>
+        </div>
 
-        </h4>
+        {/* Right */}
+        <div className="d-flex align-items-center gap-3">
 
-        <div className="d-flex align-items-center">
+          {/* Search */}
+          <button className="nav-icon-btn">
+            <i className="bi bi-search"></i>
+          </button>
 
-          <i className="bi bi-search text-white fs-4 me-4"></i>
+          {/* Notifications */}
+          <Link
+            to="/notifications"
+            className="nav-icon-btn position-relative text-decoration-none"
+          >
+            <i className="bi bi-bell"></i>
+            <span className="notification-dot"></span>
+          </Link>
 
-          <i className="bi bi-bell text-white fs-4 me-4"></i>
+          {/* Profile */}
+          <Link
+            to="/profile"
+            className="profile-btn text-decoration-none"
+          >
+            <img
+              src="https://i.pravatar.cc/150"
+              alt="Profile"
+            />
 
-          <img
-            src="https://i.pravatar.cc/45"
-            alt="profile"
-            className="rounded-circle"
-          />
+            <div className="d-none d-md-block">
+              <h6 className="mb-0 text-white">
+                My Profile
+              </h6>
+
+              <small className="text-light opacity-75">
+                View Profile
+              </small>
+            </div>
+          </Link>
 
         </div>
 
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 

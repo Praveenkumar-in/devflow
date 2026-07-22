@@ -103,179 +103,208 @@ const CreateTaskModal = ({
     }
 
   };
-  return (
-    <Modal show={show} onHide={handleClose} centered size="lg">
-      <Form onSubmit={handleSubmit}>
+return (
+  <Modal
+    show={show}
+    onHide={handleClose}
+    centered
+    size="lg"
+    dialogClassName="task-modal"
+  >
+    <Form onSubmit={handleSubmit}>
 
-        <Modal.Header closeButton>
-          <Modal.Title>
-            <i className="bi bi-list-task me-2"></i>
-            Create Task
-          </Modal.Title>
-        </Modal.Header>
+      <Modal.Header closeButton>
+        <Modal.Title>
+          <i className="bi bi-list-task me-2"></i>
+          Create Task
+        </Modal.Title>
+      </Modal.Header>
 
-        <Modal.Body>
+      <Modal.Body>
 
-          {/* Project */}
+        {/* Project */}
 
-          <Form.Group className="mb-3">
-            <Form.Label>Project</Form.Label>
-            <Form.Select
-              name="project_id"
-              value={formData.project_id}
-              onChange={handleChange}
-              required
-            >
-              <option value="">Select Project</option>
+        <Form.Group className="mb-3">
+          <Form.Label>Project</Form.Label>
 
-              {projects.map((project) => (
-                <option
-                  key={project.id}
-                  value={project.id}
-                >
-                  {project.title}
-                </option>
-              ))}
-            </Form.Select>
-          </Form.Group>
+          <Form.Select
+            className="premium-input"
+            name="project_id"
+            value={formData.project_id}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select Project</option>
 
-          {/* Assigned User */}
+            {projects.map((project) => (
+              <option
+                key={project.id}
+                value={project.id}
+              >
+                {project.title}
+              </option>
+            ))}
+          </Form.Select>
 
-          <Form.Group className="mb-3">
-            <Form.Label>Assign To</Form.Label>
+        </Form.Group>
 
-            <Form.Select
-              name="assigned_to"
-              value={formData.assigned_to}
-              onChange={handleChange}
-              required
-            >
-              <option value="">Select User</option>
+        {/* Assigned User */}
 
-              {users.map((user) => (
-                <option
-                  key={user.id}
-                  value={user.id}
-                >
-                  {user.full_name}
-                </option>
-              ))}
-            </Form.Select>
-          </Form.Group>
+        <Form.Group className="mb-3">
 
-          {/* Title */}
+          <Form.Label>Assign To</Form.Label>
 
-          <Form.Group className="mb-3">
-            <Form.Label>Title</Form.Label>
+          <Form.Select
+            className="premium-input"
+            name="assigned_to"
+            value={formData.assigned_to}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select User</option>
 
-            <Form.Control
-              type="text"
-              name="title"
-              value={formData.title}
-              onChange={handleChange}
-              placeholder="Enter task title"
-              required
-            />
-          </Form.Group>
+            {users.map((user) => (
+              <option
+                key={user.id}
+                value={user.id}
+              >
+                {user.full_name}
+              </option>
+            ))}
 
-          {/* Description */}
+          </Form.Select>
 
-          <Form.Group className="mb-3">
-            <Form.Label>Description</Form.Label>
+        </Form.Group>
 
-            <Form.Control
-              as="textarea"
-              rows={4}
-              name="description"
-              value={formData.description}
-              onChange={handleChange}
-              placeholder="Enter task description"
-              required
-            />
-          </Form.Group>
+        {/* Title */}
 
-          <div className="row">
+        <Form.Group className="mb-3">
 
-            {/* Priority */}
+          <Form.Label>Title</Form.Label>
 
-            <div className="col-md-6">
+          <Form.Control
+            className="premium-input"
+            type="text"
+            name="title"
+            value={formData.title}
+            onChange={handleChange}
+            placeholder="Enter task title"
+            required
+          />
 
-              <Form.Group className="mb-3">
-                <Form.Label>Priority</Form.Label>
+        </Form.Group>
 
-                <Form.Select
-                  name="priority"
-                  value={formData.priority}
-                  onChange={handleChange}
-                >
-                  <option>Low</option>
-                  <option>Medium</option>
-                  <option>High</option>
-                </Form.Select>
-              </Form.Group>
+        {/* Description */}
 
-            </div>
+        <Form.Group className="mb-3">
 
-            {/* Status */}
+          <Form.Label>Description</Form.Label>
 
-            <div className="col-md-6">
+          <Form.Control
+            className="premium-input"
+            as="textarea"
+            rows={4}
+            name="description"
+            value={formData.description}
+            onChange={handleChange}
+            placeholder="Enter task description"
+            required
+          />
 
-              <Form.Group className="mb-3">
-                <Form.Label>Status</Form.Label>
+        </Form.Group>
 
-                <Form.Select
-                  name="status"
-                  value={formData.status}
-                  onChange={handleChange}
-                >
-                  <option>Pending</option>
-                  <option>In Progress</option>
-                  <option>Completed</option>
-                </Form.Select>
-              </Form.Group>
+        <div className="row">
 
-            </div>
+          {/* Priority */}
+
+          <div className="col-md-6">
+
+            <Form.Group className="mb-3">
+
+              <Form.Label>Priority</Form.Label>
+
+              <Form.Select
+                className="premium-input"
+                name="priority"
+                value={formData.priority}
+                onChange={handleChange}
+              >
+                <option>Low</option>
+                <option>Medium</option>
+                <option>High</option>
+              </Form.Select>
+
+            </Form.Group>
 
           </div>
 
-          {/* Due Date */}
+          {/* Status */}
 
-          <Form.Group>
-            <Form.Label>Due Date</Form.Label>
+          <div className="col-md-6">
 
-            <Form.Control
-              type="date"
-              name="due_date"
-              value={formData.due_date}
-              onChange={handleChange}
-              required
-            />
-          </Form.Group>
+            <Form.Group className="mb-3">
 
-        </Modal.Body>
+              <Form.Label>Status</Form.Label>
 
-        <Modal.Footer>
+              <Form.Select
+                className="premium-input"
+                name="status"
+                value={formData.status}
+                onChange={handleChange}
+              >
+                <option>Pending</option>
+                <option>In Progress</option>
+                <option>Completed</option>
+              </Form.Select>
 
-          <Button
-            variant="secondary"
-            onClick={handleClose}
-          >
-            Cancel
-          </Button>
+            </Form.Group>
 
-          <Button
-            variant="primary"
-            type="submit"
-          >
-            <i className="bi bi-plus-circle me-2"></i>
-            Create Task
-          </Button>
+          </div>
 
-        </Modal.Footer>
+        </div>
 
-      </Form>
-    </Modal>
-  );
+        {/* Due Date */}
+
+        <Form.Group>
+
+          <Form.Label>Due Date</Form.Label>
+
+          <Form.Control
+            className="premium-input"
+            type="date"
+            name="due_date"
+            value={formData.due_date}
+            onChange={handleChange}
+            required
+          />
+
+        </Form.Group>
+
+      </Modal.Body>
+
+      <Modal.Footer>
+
+        <Button
+          variant="outline-light"
+          onClick={handleClose}
+        >
+          <i className="bi bi-x-circle me-2"></i>
+          Cancel
+        </Button>
+
+        <Button
+          variant="primary"
+          type="submit"
+        >
+          <i className="bi bi-plus-circle me-2"></i>
+          Create Task
+        </Button>
+
+      </Modal.Footer>
+
+    </Form>
+  </Modal>
+);
 };
 
 export default CreateTaskModal;

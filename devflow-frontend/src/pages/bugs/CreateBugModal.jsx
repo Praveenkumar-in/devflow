@@ -104,148 +104,223 @@ const CreateBugModal = ({ show, handleClose, onSuccess }) => {
   };
 
   return (
-    <Modal
-      show={show}
-      onHide={handleClose}
-      centered
-      size="lg"
-    >
-      <Modal.Header closeButton>
-        <Modal.Title>
-          <i className="bi bi-bug-fill text-danger me-2"></i>
-          Report New Bug
-        </Modal.Title>
-      </Modal.Header>
+  <Modal
+    show={show}
+    onHide={handleClose}
+    centered
+    size="lg"
+    dialogClassName="task-modal"
+  >
+    <Modal.Header closeButton>
+      <Modal.Title>
+        <i className="bi bi-bug-fill text-danger me-2"></i>
+        Report New Bug
+      </Modal.Title>
+    </Modal.Header>
 
-      <Modal.Body>
-        <div className="row g-3">
+    <Modal.Body>
 
-          <div className="col-md-6">
-            <label className="form-label">Project</label>
+      <div className="row g-3">
 
-            <select
-              className="form-select"
-              name="project_id"
-              value={formData.project_id}
-              onChange={handleChange}
-            >
-              <option value="">Select Project</option>
+        {/* Project */}
 
-              {projects.map((project) => (
-                <option key={project.id} value={project.id}>
-                  {project.title}
-                </option>
-              ))}
-            </select>
-          </div>
+        <div className="col-md-6">
 
-          <div className="col-md-6">
-            <label className="form-label">Assign To</label>
+          <label className="form-label">
+            Project
+          </label>
 
-            <select
-              className="form-select"
-              name="assigned_to"
-              value={formData.assigned_to}
-              onChange={handleChange}
-            >
-              <option value="">Select Developer</option>
+          <select
+            className="form-select premium-input"
+            name="project_id"
+            value={formData.project_id}
+            onChange={handleChange}
+          >
+            <option value="">Select Project</option>
 
-              {users.map((user) => (
-                <option key={user.id} value={user.id}>
-                  {user.full_name}
-                </option>
-              ))}
-            </select>
-          </div>
+            {projects.map((project) => (
+              <option
+                key={project.id}
+                value={project.id}
+              >
+                {project.title}
+              </option>
+            ))}
 
-          <div className="col-12">
-            <label className="form-label">Bug Title</label>
-
-            <input
-              type="text"
-              className="form-control"
-              name="title"
-              value={formData.title}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="col-12">
-            <label className="form-label">Description</label>
-
-            <textarea
-              rows={4}
-              className="form-control"
-              name="description"
-              value={formData.description}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="col-md-6">
-            <label className="form-label">Priority</label>
-
-            <select
-              className="form-select"
-              name="priority"
-              value={formData.priority}
-              onChange={handleChange}
-            >
-              <option>Low</option>
-              <option>Medium</option>
-              <option>High</option>
-            </select>
-          </div>
-
-          <div className="col-md-6">
-            <label className="form-label">Status</label>
-
-            <select
-              className="form-select"
-              name="status"
-              value={formData.status}
-              onChange={handleChange}
-            >
-              <option>Open</option>
-              <option>In Progress</option>
-              <option>Resolved</option>
-              <option>Closed</option>
-            </select>
-          </div>
-
-          <div className="col-12">
-            <label className="form-label">Screenshot</label>
-
-            <input
-              type="file"
-              className="form-control"
-              accept="image/*"
-              onChange={handleFileChange}
-            />
-          </div>
+          </select>
 
         </div>
-      </Modal.Body>
 
-      <Modal.Footer>
-        <Button
-          variant="secondary"
-          onClick={handleClose}
-          disabled={loading}
-        >
-          Cancel
-        </Button>
+        {/* Assign */}
 
-        <Button
-          variant="primary"
-          onClick={handleSubmit}
-          disabled={loading}
-        >
-          {loading ? "Creating..." : "Create Bug"}
-        </Button>
-      </Modal.Footer>
-    </Modal>
-  );
+        <div className="col-md-6">
+
+          <label className="form-label">
+            Assign To
+          </label>
+
+          <select
+            className="form-select premium-input"
+            name="assigned_to"
+            value={formData.assigned_to}
+            onChange={handleChange}
+          >
+            <option value="">Select Developer</option>
+
+            {users.map((user) => (
+              <option
+                key={user.id}
+                value={user.id}
+              >
+                {user.full_name}
+              </option>
+            ))}
+
+          </select>
+
+        </div>
+
+        {/* Title */}
+
+        <div className="col-12">
+
+          <label className="form-label">
+            Bug Title
+          </label>
+
+          <input
+            type="text"
+            className="form-control premium-input"
+            name="title"
+            value={formData.title}
+            onChange={handleChange}
+            placeholder="Enter bug title"
+          />
+
+        </div>
+
+        {/* Description */}
+
+        <div className="col-12">
+
+          <label className="form-label">
+            Description
+          </label>
+
+          <textarea
+            rows={4}
+            className="form-control premium-input"
+            name="description"
+            value={formData.description}
+            onChange={handleChange}
+            placeholder="Describe the issue..."
+          />
+
+        </div>
+
+        {/* Priority */}
+
+        <div className="col-md-6">
+
+          <label className="form-label">
+            Priority
+          </label>
+
+          <select
+            className="form-select premium-input"
+            name="priority"
+            value={formData.priority}
+            onChange={handleChange}
+          >
+            <option>Low</option>
+            <option>Medium</option>
+            <option>High</option>
+          </select>
+
+        </div>
+
+        {/* Status */}
+
+        <div className="col-md-6">
+
+          <label className="form-label">
+            Status
+          </label>
+
+          <select
+            className="form-select premium-input"
+            name="status"
+            value={formData.status}
+            onChange={handleChange}
+          >
+            <option>Open</option>
+            <option>In Progress</option>
+            <option>Resolved</option>
+            <option>Closed</option>
+          </select>
+
+        </div>
+
+        {/* Screenshot */}
+
+        <div className="col-12">
+
+          <label className="form-label">
+            Screenshot
+          </label>
+
+          <input
+            type="file"
+            accept="image/*"
+            className="form-control premium-input"
+            onChange={handleFileChange}
+          />
+
+        </div>
+
+      </div>
+
+    </Modal.Body>
+
+    <Modal.Footer>
+
+      <Button
+        variant="outline-light"
+        onClick={handleClose}
+        disabled={loading}
+      >
+        <i className="bi bi-x-circle me-2"></i>
+
+        Cancel
+
+      </Button>
+
+      <Button
+        variant="danger"
+        onClick={handleSubmit}
+        disabled={loading}
+      >
+        {loading ? (
+          <>
+            <span className="spinner-border spinner-border-sm me-2"></span>
+
+            Creating...
+
+          </>
+        ) : (
+          <>
+            <i className="bi bi-bug-fill me-2"></i>
+
+            Create Bug
+          </>
+        )}
+
+      </Button>
+
+    </Modal.Footer>
+
+  </Modal>
+);
 };
 
 export default CreateBugModal;

@@ -44,6 +44,11 @@ const Sidebar = () => {
       icon: "bi-person-circle",
       path: "/profile",
     },
+     {
+      name: "Github",
+      icon: "bi bi-github",
+      path: "/github",
+    },
   ];
 
   return (

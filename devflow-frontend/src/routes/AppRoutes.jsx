@@ -13,10 +13,10 @@ import TaskDetails from "../pages/tasks/TaskDetails";
 
 import DashboardLayout from "../layouts/DashboardLayout";
 import ProtectedRoute from "./ProtectedRoute";
-
+import Github from "../pages/github/Github";
 import Teams from "../pages/teams/Teams";
 import TeamDetails from "../pages/teams/TeamDetails";
-
+import AiAssistant from "../pages/ai/AiAssistant";
 import BugDetails from "../pages/bugs/BugDetails";
 import Bugs from "../pages/bugs/Bugs";
 import Profile from "../pages/profile/Profile";
@@ -100,11 +100,19 @@ const AppRoutes = () => {
     </ProtectedRoute>
   }
 />
-        {/* Future Pages */}
-       
+
+
+
+<Route
+  path="/ai"
+  element={
+    <ProtectedRoute>
+      <AiAssistant />
+    </ProtectedRoute>
+  }
+/>
         
-        <Route path="/ai" element={<h1>AI Assistant</h1>} />
-        
+    <Route path="/github" element={<Github />} />    
         
       </Route>
     </Routes>
