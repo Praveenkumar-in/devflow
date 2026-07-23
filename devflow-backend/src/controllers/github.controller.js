@@ -200,12 +200,12 @@ exports.githubCallback = async (req, res) => {
         );
 
         // Redirect back to React
-        res.redirect("http://localhost:5173/github?connected=true");
+        res.redirect("https://devflowo.netlify.app/github?connected=true");
 
     } catch (error) {
         console.error("GitHub Callback Error:", error.response?.data || error.message);
 
-        res.redirect("http://localhost:5173/github?connected=false");
+        res.redirect("https://devflowo.netlify.app/github?connected=false");
     }
 };
 
